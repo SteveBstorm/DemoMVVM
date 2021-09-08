@@ -1,0 +1,50 @@
+﻿<Window x:Class="DemoMVVM.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DemoMVVM"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800"
+        DataContext="{StaticResource updown}">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <Viewbox>
+            <Label Content="{Binding Nombre}"></Label>
+        </Viewbox>
+        <Grid Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+            <Button Grid.Row="0" FontSize="75" Command="{Binding Increment}">
+               +
+            </Button>
+            <Button Grid.Row="2" FontSize="75" Command="{Binding Decrement}">
+                -
+            </Button>
+            <Button Grid.Row="3" FontSize="40" Command="{Binding OpenWindow}">Open Window</Button>
+            <Button Grid.Row="1" FontSize="75" Command="{Binding AddNumber}">Add</Button>
+        </Grid>
+        <Grid Grid.Column="2">
+            <Grid.RowDefinitions>
+                <RowDefinition />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+            <ListView Grid.Row="0" ItemsSource="{Binding ListeValeur}">
+
+            </ListView>
+
+            <DataGrid Grid.Row="1" ItemsSource="{Binding ListeNombre}">
+                
+            </DataGrid>
+        </Grid>
+        
+    </Grid>
+</Window>
